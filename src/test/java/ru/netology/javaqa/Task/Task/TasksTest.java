@@ -3,6 +3,8 @@ package ru.netology.javaqa.Task.Task;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TasksTest {
@@ -11,16 +13,16 @@ public class TasksTest {
     public void testSimpleTaskMatches() {
         SimpleTask task = new SimpleTask(5, "Позвонить родителям");
 
-        assertTrue(task.matches("Позвонить родителям"));
-        assertFalse(task.matches("Не звонить "));
+        Assertions.assertTrue(task.matches("Позвонить родителям"));
+        Assertions.assertFalse(task.matches("Не звонить "));
     }
 
     @Test
     public void testEpicMatches() {
         Epic epic = new Epic(55, new String[]{"Молоко"});
 
-        assertTrue(epic.matches("Молоко"));
-        assertFalse(epic.matches("Каша"));
+        Assertions.assertTrue(epic.matches("Молоко"));
+        Assertions.assertFalse(epic.matches("Каша"));
     }
 
     @Test
@@ -31,9 +33,9 @@ public class TasksTest {
                 "Во вторник после обеда");
 
 
-        assertTrue(meeting.matches("Выкатка 3й версии приложения"));
-        assertTrue(meeting.matches("Приложение НетоБанка"));
-        assertFalse(meeting.matches("Отдых"));
+        Assertions.assertTrue(meeting.matches("Выкатка 3й версии приложения"));
+        Assertions.assertTrue(meeting.matches("Приложение НетоБанка"));
+        Assertions.assertFalse(meeting.matches("Отдых"));
     }
 
     @Test
@@ -84,7 +86,7 @@ public class TasksTest {
     // Проверяем, что метод matches возвращает false для несовпадающего запроса
     public void testMatches() {
         Task task = new Task(1);
-        assertFalse(task.matches("query"));
+        Assertions.assertFalse(task.matches("query"));
 
 
     }
